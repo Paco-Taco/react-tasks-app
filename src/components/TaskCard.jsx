@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 
-
 function TaskCard({ task, deleteTask }) {
   
   return (
