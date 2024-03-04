@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import TaskCard from "./TaskCard";
 
 // TaskList function that will go over all the array elements and display them
-function TaskList({ tasks }) {
+function TaskList({ tasks, deleteTask }) {
   //   No tasks handling
   if (tasks.length === 0) {
     return <h1>There are no tasks yet..</h1>;
@@ -12,7 +12,7 @@ function TaskList({ tasks }) {
   return (
     <div>
       {tasks.map((task) => (
-        <TaskCard task={task} key={task.id} />
+        <TaskCard task={task} deleteTask={deleteTask} key={task.id} />
       ))}
     </div>
   );
@@ -21,6 +21,7 @@ function TaskList({ tasks }) {
 }
 TaskList.propTypes = {
   tasks: PropTypes.array.isRequired,
+  deleteTask: PropTypes.func
 };
 
 export default TaskList;
