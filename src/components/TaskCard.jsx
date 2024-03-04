@@ -1,7 +1,12 @@
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
+import { useContext } from "react";
+import { TaskContext } from "../context/TaskContext";
 
-function TaskCard({ task, deleteTask }) {
-  
+function TaskCard({ task }) {
+  // Add deleteTask component to every card
+  const { deleteTask } = useContext(TaskContext);
+
+  // Render task
   return (
     <div>
       <h1>{task.title}</h1>
@@ -13,8 +18,7 @@ function TaskCard({ task, deleteTask }) {
 
 // PROP-TYPES
 TaskCard.propTypes = {
-    task: PropTypes.object.isRequired,
-    deleteTask: PropTypes.func
-}
+  task: PropTypes.object.isRequired,
+};
 
 export default TaskCard;
